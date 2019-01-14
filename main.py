@@ -56,7 +56,10 @@ def do_command(keyword, cmd):
         print(args)
         # delete first command
         print(tuple(args[1:]))
-        hello(tuple(args[1:]))
+        try:
+            hello(tuple(args[1:]))
+        except SystemExit as e:
+            assert e.code == 0
     elif keyword == 'help':
         print('HELP')
 
